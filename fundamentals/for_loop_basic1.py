@@ -41,15 +41,17 @@
 
 # Countdown by Fours - Print positive numbers starting at 2018, counting down by fours.
 
-y = 2018
-while y > 0:
-    print(y)
-    y = y - 4
-    if y == 0:
-        break
-else:		
-    print("Final else statement")
-
+# y = 2018
+# while y > 0:
+#     print(y)
+#     y = y - 4
+#     if y == 0:
+#         break
+# else:
+#     print("Final else statement")
 
 
 # Flexible Counter - Set three variables: lowNum, highNum, mult. Starting at lowNum and going through highNum, print only the integers that are a multiple of mult. For example, if lowNum = 2, highNum = 9, and mult = 3, the loop should print 3, 6, 9 (on successive lines)
+
+
+
