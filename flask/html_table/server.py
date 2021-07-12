@@ -21,7 +21,7 @@ def render_lists():
 ]
 
 
-    return render_template("lists.html", random_numbers = [3,1,5], users = users)
+    return render_template("lists.html", users = users)
 
 #this must be below ALL routes
 if __name__=='__main__': 
