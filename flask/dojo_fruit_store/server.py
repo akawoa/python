@@ -22,8 +22,9 @@ def checkout():
     last_name = request.form['last_name']
     student_id = request.form['student_id']
     total_items = strawberry + raspberry + apple + blackberry
+    customer = (f"{first_name} {last_name}")
 
-    return render_template("checkout.html", strawberry = strawberry,raspberry = raspberry,apple = apple,blackberry = blackberry,first_name = first_name,last_name = last_name,student_id = student_id,total_items = total_items, date = dt_string)
+    return render_template("checkout.html", strawberry = strawberry,raspberry = raspberry,apple = apple,blackberry = blackberry,first_name = first_name,last_name = last_name,student_id = student_id,total_items = total_items, date = dt_string, customer_name = customer)
 
 @app.route('/fruits')         
 def fruits():
