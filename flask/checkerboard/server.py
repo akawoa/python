@@ -24,10 +24,11 @@ def width_four():
     return render_template('index2.html')
 
 
-@app.route('/<x>')
-def variable_width(x):
+@app.route('/<x>/<color>')
+def variable_width(x, color):
     user_input1 = int(x)
-    return render_template('index3.html', width = user_input1)
+    user_input2 = color
+    return render_template('index3.html', width = user_input1,color=user_input2)
 
 
 @app.route('/<x>/<y>')

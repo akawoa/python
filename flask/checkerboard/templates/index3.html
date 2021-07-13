@@ -15,7 +15,7 @@
     {% for i in range( 8 ): %}
         <tr>
             {% for j in range( width ): %}
-            <td class="color{{  (i+j)%2+1  }}"></td>
+            <td style="background-color:{{color}}" class="color{{  (i+j)%2+1  }}"></td>
             {% endfor %}
         </tr>    
     {% endfor %}

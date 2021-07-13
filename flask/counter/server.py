@@ -1,34 +1,26 @@
-from flask import Flask, render_template, request, redirect, session
+#pipenv install flask ..... to make pipfile and pipfile.lock
+#pipenv shell ..... to enter into shell
+#python server.py ..... start your server
+from flask import Flask, render_template, redirect, session, request
 app = Flask(__name__)
 
 app.secret_key = "Yeet on em"
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if 'counter' not in session:
+        # then set sessions total gold value to be 0
+        session['counter'] = 0
+    session['counter'] += 1
+    session.modified= True
+    counter = session['counter']
 
-@app.route('/heroes', methods=['POST'])
-def create_hero():
-    session['name'] = 1
-    session['alter_ego'] = request.form['alter_ego']
-    session['catch_phrase'] = request.form['catch_phrase']
-    return redirect('/')
+    return render_template('index.html', counter=counter)
 
-@app.route('/success')
-def success():
-    if 'name' not in session:
-        return redirect('/')  
-
-
-@app.route('/logout')
-def logout():
-    del session['name']
-    del session['alter_ego']
-    del session['catch_phrase']
-
-    # alternatively
-
-    # session.clear() # this will clear EVERYTHING
+@app.route('/reset', methods=['POST'])
+def reset():
+    if request.form['button'] == "reset":
+        session.pop('counter')
     return redirect('/')
 
 if __name__ == '__main__':
