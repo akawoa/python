@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Dojo Survey</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <h2>Dojo Survey</h2>
+    </div>
+        <form action="/process" method="post">
+            <div class="col-6">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" name="name" id="name" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+              <label for="country" class="form-label">Dojo Location</label>
+              <select class="form-select" name="location" id="location" required>
+                <option value="">Choose...</option>
+                <option>Bellevue</option>
+                <option>Boise</option>
+                <option>Chicago</option>
+                <option>Dallas</option>
+                <option>LA</option>
+                <option>San Jose</option>
+                <option>Online</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label for="language" class="form-label">Favorite Language</label>
+              <select class="form-select" id="language" name="language" required>
+                <option value="">Choose...</option>
+                <option>Python</option>
+                <option>Java</option>
+                <option>JavaScript</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label for="zip" class="form-label">Comment</label>
+              <input type="text" class="form-control" id="comment" placeholder="" name="comment">
+            </div>
+
+          </div>
+          <hr class="my-4">
+          <button class="w-100 btn btn-primary btn-lg" input type="submit">Submit Survey</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
