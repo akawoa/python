@@ -1,0 +1,11 @@
+SELECT * 
+FROM users
+WHERE first_name LIKE "K%"
+INSERT INTO users (first_name, last_name, handle, birthday, created_at, updated_at) 
+VALUES('Ryne', 'Rountree', "Darling", "1992/04/23", current_timestamp(), current_timestamp());
+SELECT * FROM users
+UPDATE twitter.users 
+SET birthday = "1992/04/23" 
+WHERE id = 6;
+DELETE FROM users
+WHERE id = 6

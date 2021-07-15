@@ -1,0 +1,77 @@
+
+Query: Create 5 different authors: Jane Austen, Emily Dickinson, Fyodor Dostoevsky, William Shakespeare, Lau Tzu:
+
+INSERT INTO authors (name, created_at, updated_at) 
+VALUES('Jane Austen', current_timestamp(), current_timestamp()),
+('Emily Dickinson', current_timestamp(), current_timestamp()),
+('Fyodor Dostoevsky', current_timestamp(), current_timestamp()),
+('William Shakespeare', current_timestamp(), current_timestamp()),
+('Lau Tzu', current_timestamp(), current_timestamp());
+
+Query: Create 5 books with the following names: C Sharp, Java, Python, PHP, Ruby:
+
+INSERT INTO books (title, num_of_pages, created_at, updated_at) 
+VALUES('C Sharp', 724, current_timestamp(), current_timestamp()),
+('Java', 9001, current_timestamp(), current_timestamp()),
+('Python', 423, current_timestamp(), current_timestamp()),
+('PHP', 617, current_timestamp(), current_timestamp()),
+('Ruby', 826, current_timestamp(), current_timestamp());
+
+Query: Change the name of the C Sharp book to C#:
+
+UPDATE books SET
+title = 'C#' 
+WHERE id = 1;
+
+Query: Change the first name of the 4th author to Bill:
+
+UPDATE authors SET
+name = 'Bill Shakespeare' 
+WHERE id = 4;
+
+Query: Have the first author favorite the first 2 books:
+
+INSERT INTO favorites (author_id, book_id) 
+VALUES(1, 2), (1, 3)
+
+Query: Have the second author favorite the first 3 books:
+
+INSERT INTO favorites (author_id, book_id) 
+VALUES(2, 1), (2, 2), (2, 3)
+
+Query: Have the third author favorite the first 4 books:
+
+INSERT INTO favorites (author_id, book_id) 
+VALUES(3, 1), (3, 2), (3, 3), (3 ,4)
+
+Query: Have the fourth author favorite all the books:
+
+INSERT INTO favorites (author_id, book_id) 
+VALUES(4, 1), (4, 2), (4, 3), (4 ,4), (4,5)
+
+Query: Retrieve all the authors who favorited the 3rd book:
+
+SELECT * 
+FROM favorites
+WHERE book_id = 3
+
+Query: Remove the first author of the 3rd book's favorites:
+
+DELETE FROM favorites 
+WHERE book_id = 3
+AND author_id = 1;
+
+Query: Add the 5th author as an other who favorited the 2nd book:
+
+INSERT INTO favorites (author_id, book_id) 
+VALUES(5, 2);
+
+Find all the books that the 3rd author favorited:
+
+SELECT * FROM favorites
+WHERE author_id = 3
+
+Query: Find all the authors that favorited to the 5th book:
+
+SELECT * FROM favorites
+WHERE book_id = 5

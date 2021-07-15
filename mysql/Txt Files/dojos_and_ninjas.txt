@@ -1,0 +1,65 @@
+Create 3 Dojos:
+INSERT INTO dojos (name, created_at, updated_at) 
+VALUES ('Kugane', current_timestamp(), current_timestamp()),
+('Bellevue', current_timestamp(), current_timestamp()),
+('Shinra', current_timestamp(), current_timestamp());
+
+Query: Delete the 3 dojos you just created:
+
+DELETE FROM dojos
+WHERE id = 1;
+DELETE FROM dojos
+WHERE id = 2;
+DELETE FROM dojos
+WHERE id = 3;
+
+Query: Create 3 more dojos:
+
+INSERT INTO dojos (name, created_at, updated_at) 
+VALUES ('Dalmasca', current_timestamp(), current_timestamp()),
+('Bothell', current_timestamp(), current_timestamp()),
+('Eorzea', current_timestamp(), current_timestamp());
+
+Query: Create 3 ninjas that belong to the first dojo:
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at) 
+VALUES ('Tifa', 'Lockhart', 24, 4, current_timestamp(), current_timestamp()),
+('Kyouko', 'Hori', 19, 4, current_timestamp(), current_timestamp()),
+('Yoko', 'Littner', 20, 4, current_timestamp(), current_timestamp());
+
+Query: Create 3 ninjas that belong to the second dojo:
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at) 
+VALUES ('Tohru', 'Kobayashi', 26, 5, current_timestamp(), current_timestamp()),
+('Zero', 'Two', 23, 5, current_timestamp(), current_timestamp()),
+('Yuffie', 'Yulan', 18, 5, current_timestamp(), current_timestamp());
+
+Query: Create 3 ninjas that belong to the third dojo:
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at) 
+VALUES ('Artoria', 'Pendragon', 19, 6, current_timestamp(), current_timestamp()),
+('Okita', 'Souji', 22, 6, current_timestamp(), current_timestamp()),
+('Kiyara', 'Sessyoin', 423, 6, current_timestamp(), current_timestamp());
+
+Query: Retrieve all the ninjas from the first dojo:
+
+SELECT * FROM ninjas
+WHERE dojo_id = 4;
+
+Query: Retrieve all the ninjas from the last dojo:
+
+SELECT * FROM ninjas
+WHERE dojo_id = 6;
+
+Query: Retrieve the last ninja's dojo:
+
+SELECT * FROM ninjas
+ORDER BY id DESC;
+
+SELECT * FROM ninjas
+WHERE id = 9;
+
+SELECT * FROM dojos
+WHERE id = 6
+
+
