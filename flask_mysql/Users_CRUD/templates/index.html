@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Grid Template · Bootstrap v5.0</title>
+    <title>Users Database</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/grid/">
     
@@ -36,34 +36,35 @@
   </head>
   <body class="py-4">
 <main>
-    <h2 class="mt-4">All Users</h2>
+    <h2 class="ms-4 mt-4 justify-content-center">All Users</h2>
 
-    <div class="row mb-1 themed-container">
-      <div class="col-md-1 themed-grid-col">ID</div>
-      <div class="col-md-2 themed-grid-col">First Name</div>
-      <div class="col-md-2 themed-grid-col">Last Name</div>
-      <div class="col-md-1 themed-grid-col">Email</div>
-      <div class="col-md-1 themed-grid-col">Created At</div>
+    <div class="row mb-1 px-2 justify-content-center">
+      <div class="col-md-1 themed-grid-col justify-content-center">ID</div>
+      <div class="col-md-2 themed-grid-col justify-content-center">First Name</div>
+      <div class="col-md-2 themed-grid-col justify-content-center">Last Name</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">Email</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">Created At</div>
+      <div class="col-md-1 .justify-content-center themed-grid-col">Actions</div>
     </div>
     {% for one_user in all_users %}
-        <div class="row mb-1">
-      <div class="col-md-1 themed-grid-col">{{one_user.id}}</div>
-      <div class="col-md-2 themed-grid-col">{{one_user.first_name}}</div>
-      <div class="col-md-2 themed-grid-col">{{one_user.last_name}}</div>
-      <div class="col-md-1 themed-grid-col">{{one_user.email}}</div>
-      <div class="col-md-1 themed-grid-col">{{one_user.created_at}}</div>
-      <div class="col-md-1 themed-grid-col">
-      <a href="/view/{{one_user.id}}">View</a></div>
-      <div class="col-md-1 themed-grid-col"><a href="/edit/{{one_user.id}}">Edit</a></div>
-      <div class="col-md-1 themed-grid-col"><a href="/delete">Delete</a></div>
+        <div class="row mb-1 justify-content-center">
+      <div class="col-md-1 ms-1 themed-grid-col justify-content-center">{{one_user.id}}</div>
+      <div class="col-md-2 themed-grid-col justify-content-center">{{one_user.first_name}}</div>
+      <div class="col-md-2 themed-grid-col justify-content-center">{{one_user.last_name}}</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">{{one_user.email}}</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">{{one_user.created_at}}</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">
+      <p><a href="/view/{{one_user.id}}">View</a> | 
+      <a href="/edit/{{one_user.id}}">Edit</a> | 
+      <a href="/delete/{{one_user.id}}">Delete</a></div></p>
     </div>
     {% endfor %}
 </main>
-
+<div class="ms-4">
 <a href="/create_user">Add A New User</a>
 <a href="/view/1">View User</a>
 <a href="/edit">Edit User</a>
-
+</div>
 </body>
 </html>
 

@@ -54,6 +54,15 @@ def edituser(idFromURL):
     # Don't forget to redirect after saving to the database.
     return redirect('/')
 
+@app.route('/delete/<idFromURL>')
+def delete(idFromURL):
+    searchForThis = int(idFromURL)
+    id_data = {
+        'id': searchForThis
+    }
+    user = User.delete(id_data)
+    return redirect('/')
+
 @app.route('/view/<idFromURL>')
 def view(idFromURL):
     searchForThis = int(idFromURL)

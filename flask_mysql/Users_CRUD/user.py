@@ -46,3 +46,10 @@ class User:
         print(query)
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL('users').query_db( query, data )
+    
+    #Class method to delete a single user
+    @classmethod
+    def delete(cls, data ):
+        query = "DELETE FROM users WHERE id=%(id)s;"
+        # data is a dictionary that will be passed into the save method from server.py
+        return connectToMySQL('users').query_db( query, data )
