@@ -28,9 +28,31 @@ def create_user():
 def form():
     return render_template('form.html')
 
-@app.route('/edit')
-def edit():
-    return render_template('edit.html')
+@app.route('/edit/<idFromURL>')
+def edit(idFromURL):
+    searchForThis = int(idFromURL)
+    id_data = {
+        'id': searchForThis
+    }
+    user = User.select_one(id_data)
+    print(user.id)
+    return render_template('edit.html', idFromURL=user.id)
+
+@app.route('/editprocess/<idFromURL>', methods=["POST"])
+def edituser(idFromURL):
+    idFromURL = int(idFromURL)
+    # First we make a data dictionary from our request.form coming from our template.
+    # The keys in data need to line up exactly with the variables in our query string.
+    data = {
+        "fname": request.form["fname"],
+        "lname" : request.form["lname"],
+        "email" : request.form["email"],
+        "id" : idFromURL
+    }
+    # We pass the data dictionary into the save method from the Friend class.
+    User.edit(data)
+    # Don't forget to redirect after saving to the database.
+    return redirect('/')
 
 @app.route('/view/<idFromURL>')
 def view(idFromURL):
@@ -38,12 +60,8 @@ def view(idFromURL):
     data = {
         'id': searchForThis
     }
-    user = User.test(data)
+    user = User.select_one(data)
     return render_template('view.html', single_user = user)
-    # print(id)
-    # user_id = int(id)
-    # user = User.get_one(user_id)
-    # return render_template('view.html', single_user = user)
             
 if __name__ == "__main__":
     app.run(debug=True)

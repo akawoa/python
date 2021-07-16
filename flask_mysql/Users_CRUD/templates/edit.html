@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Users CRUD</title>
+    <title>User Edit</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/grid/">
     
@@ -38,6 +38,37 @@
   <div>
 <h1>Edit User</h1>
 <a href="/">Home</a>
+</div>
+ <body class="bg-light">
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+    </div>
+        <form action="/editprocess/{{idFromURL}}" method="post">
+            <div class="col-4">
+              <label for="fname" class="form-label">First Name: {{idFromURL}}</label>
+              <input type="text" name="fname" id="fname" class="form-control">
+            </div>
+
+            <div class="col-4">
+              <label for="lname" class="form-label">Last Name</label>
+              <input type="text" name="lname" id="lname" class="form-control">
+            </div>
+
+
+            <div class="col-md-4">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" class="form-control" id="email" placeholder="user@google.com" name="email">
+            </div>
+
+          </div>
+          <hr class="my-4">
+          <button class="w-100 btn btn-primary btn-lg" input type="submit">Edit User</button>
+        </form>
+      </div>
+    </div>
+  </main>
 </div>
   </body>
 </html>

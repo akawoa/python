@@ -39,19 +39,23 @@
     <h2 class="mt-4">All Users</h2>
 
     <div class="row mb-1 themed-container">
-      <div class="col-md-2 themed-grid-col">ID</div>
+      <div class="col-md-1 themed-grid-col">ID</div>
       <div class="col-md-2 themed-grid-col">First Name</div>
       <div class="col-md-2 themed-grid-col">Last Name</div>
-      <div class="col-md-2 themed-grid-col">Email</div>
-      <div class="col-md-2 themed-grid-col">Created At</div>
+      <div class="col-md-1 themed-grid-col">Email</div>
+      <div class="col-md-1 themed-grid-col">Created At</div>
     </div>
     {% for one_user in all_users %}
         <div class="row mb-1">
-      <div class="col-md-2 themed-grid-col">{{one_user.id}}</div>
+      <div class="col-md-1 themed-grid-col">{{one_user.id}}</div>
       <div class="col-md-2 themed-grid-col">{{one_user.first_name}}</div>
       <div class="col-md-2 themed-grid-col">{{one_user.last_name}}</div>
-      <div class="col-md-2 themed-grid-col">{{one_user.email}}</div>
-      <div class="col-md-2 themed-grid-col">{{one_user.created_at}}</div>
+      <div class="col-md-1 themed-grid-col">{{one_user.email}}</div>
+      <div class="col-md-1 themed-grid-col">{{one_user.created_at}}</div>
+      <div class="col-md-1 themed-grid-col">
+      <a href="/view/{{one_user.id}}">View</a></div>
+      <div class="col-md-1 themed-grid-col"><a href="/edit/{{one_user.id}}">Edit</a></div>
+      <div class="col-md-1 themed-grid-col"><a href="/delete">Delete</a></div>
     </div>
     {% endfor %}
 </main>

@@ -22,39 +22,27 @@ class User:
             users.append( cls(user) )
         return users
 
+    # Class method to look up a single user
     @classmethod
-    def test(cls, data):
+    def select_one(cls, data):
         query = "SELECT * FROM users WHERE id=%(id)s;"
         results = connectToMySQL('users').query_db(query, data)
         resultObject = cls(results[0])
         print(resultObject)
         return resultObject
 
-    # Class method to look up a single user
-    @classmethod
-    def get_one(cls, user_id):
-        query = "SELECT * FROM users WHERE id=%(user_id)d;"
-        print("Query")
-        print(query)
-        data = {
-            "user_id": user_id
-        }
-        print("Data:")
-        print(data)
-        print("Data[user_id]")
-        print(data["user_id"])
-        results = connectToMySQL('mydb').query_db(query)
-        # This is just an example of what you could do with the results.
-        print("Results")
-        print(results)
-        if len(results) > 0:
-            return results[0]
-        else:
-            return False
 
         # class method to save our friend to the database
     @classmethod
     def save(cls, data ):
         query = "INSERT INTO users ( first_name , last_name , email , created_at, updated_at ) VALUES ( %(fname)s , %(lname)s , %(email)s , NOW() , NOW() );"
+        # data is a dictionary that will be passed into the save method from server.py
+        return connectToMySQL('users').query_db( query, data )
+    
+            # class method to save our friend to the database
+    @classmethod
+    def edit(cls, data ):
+        query = "UPDATE users SET first_name = %(fname)s, last_name=%(lname)s, email=%(email)s, updated_at=now() WHERE id = %(id)s;"
+        print(query)
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL('users').query_db( query, data )
