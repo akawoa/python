@@ -31,7 +31,7 @@ class SLNode {
 }
 
 class SLList {
-    constructor(){
+    constructor() {
         this.head = null;
     }
 
@@ -43,7 +43,7 @@ class SLList {
     }
 
     addToBack(value) {
-        if(this.head == null) {
+        if (this.head == null) {
             this.addToFront(value);
             return this;
         }
@@ -51,7 +51,7 @@ class SLList {
         var newNode = new SLNode(value);
         var runner = this.head;
 
-        while(runner.next != null) {
+        while (runner.next != null) {
             runner = runner.next;
         }
 
@@ -60,16 +60,16 @@ class SLList {
     }
 
     contains(value) {
-        if(this.head == null) {
+        if (this.head == null) {
             return false;
         }
 
         var runner = this.head;
 
-        while(runner != null) {
-            if(runner.value == value) {
+        while (runner != null) {
+            if (runner.value == value) {
                 return true;
-            } else { 
+            } else {
                 runner = runner.next;
             }
         }
@@ -78,7 +78,7 @@ class SLList {
     }
 
     removeFront() {
-        if(this.head == null) {
+        if (this.head == null) {
             return false;
         }
 
@@ -90,15 +90,15 @@ class SLList {
     }
 
     removeBack() {
-        if(this.head == null) {
+        if (this.head == null) {
             return false;
-        } else if(this.head.next = null) {
+        } else if (this.head.next = null) {
             return this.removeFront();
         }
 
-        var lagger = null; 
-        var leader = this.head; 
-        while(leader.next != null) {
+        var lagger = null;
+        var leader = this.head;
+        while (leader.next != null) {
             lagger = leader;
             leader = leader.next;
         }
@@ -107,9 +107,9 @@ class SLList {
         return leader;
     }
 
-    moveMinToFront(){
+    moveMinToFront() {
         // EDGE CASES: What 
-        if(this.head == null || this.head.next == null) {
+        if (this.head == null || this.head.next == null) {
             return this;
         }
 
@@ -123,9 +123,9 @@ class SLList {
         var leader = this.head;
 
         // While our leader hasn't checked every node
-        while(leader != null) {
+        while (leader != null) {
             // At each node, we'll check our leader's value against our min value
-            if(leader.value < min.value) {
+            if (leader.value < min.value) {
                 // If the leader is at a node that has a value less than our minimum, set it as our minimum
                 min = leader;
                 // And set the lagger as our minPrev
@@ -140,7 +140,7 @@ class SLList {
 
         // Now that our runners have finished the list, we can safely say we have our min.
         // BUT ONLY IF THE MIN IS NOT THE HEAD
-        if(min != this.head) {
+        if (min != this.head) {
             // So set the minPrev's .next to the min's .next 
             minPrev.next = min.next;
             // To move the min node to the front, set its .next to the head
@@ -152,8 +152,8 @@ class SLList {
         return this;
     }
 
-    moveMaxToBack(){
-        if(this.head == null || this.head.next == null) {
+    moveMaxToBack() {
+        if (this.head == null || this.head.next == null) {
             return this;
         }
 
@@ -164,8 +164,8 @@ class SLList {
         var lagger = null;
         var leader = this.head;
 
-        while(leader != null) {
-            if(leader.value > max.value) {
+        while (leader != null) {
+            if (leader.value > max.value) {
                 max = leader;
                 maxPrev = lagger;
             }
@@ -176,7 +176,7 @@ class SLList {
 
         // If the max is the head, we have to handle this slightly differently. 
         // AKA, move the head first
-        if(max = this.head) {
+        if (max = this.head) {
             this.head = max.next;
         } else {
             // otherwise, set maxPrev's .next to max's next
@@ -188,6 +188,34 @@ class SLList {
         lagger.next = max;
         max.next = null;
         // Boom!
+        return this;
+    }
+
+
+    prependValue(valueToFind, newValue) {
+        if (this.contains(valueToFind) != true) {
+            return false;
+        }
+        else {
+            var newNode = new SLNode(newValue);
+            var finder = this.head;
+            var lagger = null;
+            while (finder != null) {
+                if (finder == valueToFind && finder == this.head) {
+                    this.addToFront(newNode);
+                }
+                else if (finder == valueToFind) {
+                    lagger.next = newNode;
+                    newNode.next = finder;
+                    return this;
+                }
+                else {
+                    lagger = finder;
+                    finder = finder.next
+                    console.log(finder);
+                }
+            }
+        }
         return this;
     }
 }

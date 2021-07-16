@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Users Database</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/grid/">
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- linking a css style sheet -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    
+    <!-- Custom styles for this template -->
+    <link href="grid.css" rel="stylesheet">
+  </head>
+  <body class="py-4">
+<main>
+    <h2 class="ms-4 mt-4 justify-content-center">All Users</h2>
+
+    <div class="row mb-1 px-2 justify-content-center">
+      <div class="col-md-1 themed-grid-col justify-content-center">ID</div>
+      <div class="col-md-2 themed-grid-col justify-content-center">First Name</div>
+      <div class="col-md-2 themed-grid-col justify-content-center">Last Name</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">Email</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">Created At</div>
+      <div class="col-md-1 .justify-content-center themed-grid-col">Actions</div>
+    </div>
+    {% for one_user in all_users %}
+        <div class="row mb-1 justify-content-center">
+      <div class="col-md-1 ms-1 themed-grid-col justify-content-center">{{one_user.id}}</div>
+      <div class="col-md-2 themed-grid-col justify-content-center">{{one_user.first_name}}</div>
+      <div class="col-md-2 themed-grid-col justify-content-center">{{one_user.last_name}}</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">{{one_user.email}}</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">{{one_user.created_at}}</div>
+      <div class="col-md-1 themed-grid-col justify-content-center">
+      <p><a href="/view/{{one_user.id}}">View</a> | 
+      <a href="/edit/{{one_user.id}}">Edit</a> | 
+      <a href="/delete/{{one_user.id}}">Delete</a></div></p>
+    </div>
+    {% endfor %}
+</main>
+<div class="ms-4">
+<a href="/create_user">Add A New User</a>
+<a href="/view/1">View User</a>
+<a href="/edit">Edit User</a>
+</div>
+</body>
+</html>
+
