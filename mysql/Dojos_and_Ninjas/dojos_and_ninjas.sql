@@ -7,6 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema dojos_and_ninjas
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `dojos_and_ninjas` ;
 
 -- -----------------------------------------------------
 -- Schema dojos_and_ninjas
@@ -17,6 +18,8 @@ USE `dojos_and_ninjas` ;
 -- -----------------------------------------------------
 -- Table `dojos_and_ninjas`.`dojos`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `dojos_and_ninjas`.`dojos` ;
+
 CREATE TABLE IF NOT EXISTS `dojos_and_ninjas`.`dojos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
@@ -30,11 +33,14 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dojos_and_ninjas`.`ninjas`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `dojos_and_ninjas`.`ninjas` ;
+
 CREATE TABLE IF NOT EXISTS `dojos_and_ninjas`.`ninjas` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `age` INT NULL,
+  `image` VARCHAR(255) NULL,
   `dojo_id` INT NOT NULL,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
