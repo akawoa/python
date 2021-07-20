@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Dojo Survey</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<div class="container">
+<header>
+<a href="/surveys">List of Surveys</a>
+</header>
+  <main>
+    <div class="py-5 text-center">
+      <h2>Dojo Survey</h2>
+    </div>
+        <form action="/process" method="post">
+            <div class="col-6">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" name="name" id="name" class="form-control">
+                            {% with name_error = get_flashed_messages(category_filter=['name']) %}
+                {% if name_error: %}
+                {% for message in name_error: %}
+                <p class="text-danger">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+              {% endwith %}
+            </div>
+
+            <div class="col-md-6">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" name="location" id="location" class="form-control">
+                              {% with location_error = get_flashed_messages(category_filter=['location']) %}
+                  {% if location_error: %}
+                  {% for message in location_error: %}
+                  <p class="text-danger">{{ message }}</p>
+                  {% endfor %}
+                  {% endif %}
+                {% endwith %}
+            </div>
+            
+
+            <div class="col-md-6">
+              <label for="language" class="form-label">Language</label>
+              <input type="text" name="language" id="language" class="form-control">
+                          {% with language_error = get_flashed_messages(category_filter=['language']) %}
+              {% if language_error: %}
+              {% for message in language_error: %}
+              <div>
+              <p class="text-danger">{{ message }}</p>
+              </div>
+              {% endfor %}
+              {% endif %}
+            {% endwith %}
+            </div>
+            </div>
+
+          </div>
+          <hr class="my-4">
+          <button class="w-100 btn btn-primary btn-lg" input type="submit">Submit Survey</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
