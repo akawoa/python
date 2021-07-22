@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>User Dashboard</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/grid/">
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- linking a css style sheet -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    
+  </head>
+  <body class="py-4">
+<main>
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/dashboard">Profile</a>
+				</li>
+  			<li class="nav-item">
+					<a class="nav-link" href="/recipes/new">Add Recipe</a>
+				</li>
+  			<li class="nav-item">
+					<a class="nav-link" href="/logout">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+    <h1> Welcome {{ user.first_name }} </h1>
+    <h2>{{single_recipe.name}}</h2>
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-2 themed-grid-col">Description:
+				</div>
+				<div class="col-md-6 themed-grid-col">{{single_recipe.description}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 themed-grid-col">Under 30 Minutes:
+				</div>
+				<div class="col-md-6 themed-grid-col">
+                {% if single_recipe.under_thirty == 0 : %}
+                No
+                {% endif %}
+                {% if single_recipe.under_thirty == 1 : %}
+                Yes
+        {% endif %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 themed-grid-col">Instructions:
+				</div>
+				<div class="col-md-6 themed-grid-col">{{single_recipe.instructions}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 themed-grid-col">Date Made:
+				</div>
+				<div class="col-md-6 themed-grid-col">{{single_recipe.created_at.strftime('%m-%d-%Y')}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+   <footer>
+    
+    </footer>
+</main>
+  </body>
+</html>
+

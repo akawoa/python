@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #C0C0C0;
+  }
+  .themed-grid-col {
+      padding-top: .75rem;
+      padding-bottom: .75rem;
+      background-color: rgba(86, 61, 124, .15);
+      border: 1px solid rgba(86, 61, 124, .2);
+    }
+    
+    .themed-container {
+      padding: 0rem;
+      margin-bottom: 0rem;
+      
+    }
+    .cropped {
+      width: auto; /* width of container */
+      height: 215px; /* height of container */
+      overflow: hidden;
+      border: 5px solid black;
+  }
